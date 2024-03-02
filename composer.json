@@ -1,0 +1,59 @@
+{
+    "name": "codebarista/laravel-essentials",
+    "description": "Tiny extensions and helpers for Laravel projects.",
+    "type": "library",
+    "keywords": [
+        "laravel",
+        "extensions",
+        "helpers"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ralf Langebrake",
+            "email": "ralf@langebrake.com"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "laravel/framework": "^10.0",
+        "spatie/laravel-health": "^1.20"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^v8.21",
+        "pestphp/pest-plugin-laravel": "^2.0"
+    },
+    "suggest": {
+        "barryvdh/laravel-ide-helper": "Enables your IDE to provide accurate autocompletion"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codebarista\\LaravelEssentials\\": "src/"
+        },
+        "files": [
+            "bootstrap/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Codebarista\\LaravelEssentials\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Codebarista\\LaravelEssentials\\EssentialsServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
