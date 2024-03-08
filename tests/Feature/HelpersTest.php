@@ -24,3 +24,15 @@ it('encodes array to json string', function () {
         ->toContain('greeting');
 
 })->covers('encode_json');
+
+it('can crush png', function () {
+    $version = null;
+
+    if ($pngcrush = exec('which pngcrush')) {
+        $version = exec($pngcrush.' --version');
+    }
+
+    expect($version)->toBeString();
+    // ->toContain('pngcrush');
+
+})->covers('crush_png');

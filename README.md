@@ -1,6 +1,6 @@
 # Laravel Essentials
 
-Growing library for simple macros, facades and other helpers in the Laravel cosmos .
+Growing library for simple macros, facades and other helpers in the Laravel cosmos.
 
 ## Installation
 
