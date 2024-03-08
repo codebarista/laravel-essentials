@@ -2,6 +2,7 @@
 
 namespace Codebarista\LaravelEssentials;
 
+use Codebarista\LaravelEssentials\Console\Commands\FailedJobs;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -12,6 +13,9 @@ class EssentialsServiceProvider extends ServiceProvider
     {
         $this->registerStringMacros();
         $this->registerArrayMacros();
+        $this->commands([
+            FailedJobs::class,
+        ]);
     }
 
     public function boot(): void
