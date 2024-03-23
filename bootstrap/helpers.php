@@ -14,6 +14,13 @@ if (! function_exists('decode_json')) {
     }
 }
 
+if (! function_exists('str_chop')) {
+    function str_chop(string $value, int $limit, string $center = '...'): string
+    {
+        return \Illuminate\Support\Str::chop($value, $limit, $center);
+    }
+}
+
 if (! function_exists('crush_png')) {
     function crush_png(string $image): bool
     {

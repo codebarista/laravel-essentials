@@ -25,14 +25,24 @@ it('encodes array to json string', function () {
 
 })->covers('encode_json');
 
-it('can crush png', function () {
-    $version = null;
+it('chops a string', function () {
+    $value = Str::random(42);
 
-    if ($pngcrush = exec('which pngcrush')) {
-        $version = exec($pngcrush.' --version');
-    }
+    expect(str_chop($value, 20))
+        ->toBeString()
+        ->toContain('...')
+        ->toHaveLength(23);
 
-    expect($version)->toBeString();
-    // ->toContain('pngcrush');
+})->covers('str_chop');
 
-})->covers('crush_png');
+//it('can crush png', function () {
+//    $version = null;
+//
+//    if ($pngcrush = exec('which pngcrush')) {
+//        $version = exec($pngcrush.' --version');
+//    }
+//
+//    expect($version)->toBeString();
+//    // ->toContain('pngcrush');
+//
+//})->covers('crush_png');

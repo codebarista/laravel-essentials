@@ -26,6 +26,7 @@ class EssentialsServiceProvider extends ServiceProvider
     {
         $macros = [
             'toJson' => \Codebarista\LaravelEssentials\Macros\String\Json::class,
+            'chop' => \Codebarista\LaravelEssentials\Macros\String\Chop::class,
         ];
 
         foreach ($macros as $name => $class) {
