@@ -1,5 +1,12 @@
 <?php
 
+it('has the callable helpers', function () {
+    expect('encode_json')->toBeCallable()
+        ->and('decode_json')->toBeCallable()
+        ->and('crush_png')->toBeCallable()
+        ->and('str_chop')->toBeCallable();
+});
+
 it('decodes json string to array', function () {
     $value = <<<'JSON'
         {
@@ -26,23 +33,18 @@ it('encodes array to json string', function () {
 })->covers('encode_json');
 
 it('chops a string', function () {
-    $value = Str::random(42);
-
-    expect(str_chop($value, 20))
+    expect(str_chop(md5(microtime()), 20))
         ->toBeString()
         ->toContain('...')
         ->toHaveLength(23);
 
 })->covers('str_chop');
 
-//it('can crush png', function () {
-//    $version = null;
-//
-//    if ($pngcrush = exec('which pngcrush')) {
-//        $version = exec($pngcrush.' --version');
-//    }
-//
-//    expect($version)->toBeString();
-//    // ->toContain('pngcrush');
-//
-//})->covers('crush_png');
+it('has pngcrush installed', function () {
+    exec(' LC_ALL=C type pngcrush', $output, $result);
+    expect($output)
+        ->toBeArray()
+        ->and($result)
+        ->toBeInt()
+        ->toBe(0);
+});
