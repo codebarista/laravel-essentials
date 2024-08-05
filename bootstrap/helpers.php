@@ -21,6 +21,20 @@ if (! function_exists('str_chop')) {
     }
 }
 
+if (! function_exists('preg_split_trim')) {
+    function preg_split_trim(string $value, string $pattern = '/,|;|\s+/', int $sort = -1): array
+    {
+        $items = array_map('trim', preg_split($pattern, $value));
+        $items = array_filter($items);
+
+        if ($sort >= SORT_REGULAR) {
+            sort($items, $sort);
+        }
+
+        return array_values($items);
+    }
+}
+
 if (! function_exists('crush_png')) {
     function crush_png(string $image): bool
     {

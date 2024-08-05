@@ -2,6 +2,7 @@
 
 it('has the callable helpers', function () {
     expect('encode_json')->toBeCallable()
+        ->and('preg_split_trim')->toBeCallable()
         ->and('decode_json')->toBeCallable()
         ->and('crush_png')->toBeCallable()
         ->and('str_chop')->toBeCallable();
@@ -39,6 +40,17 @@ it('chops a string', function () {
         ->toHaveLength(23);
 
 })->covers('str_chop');
+
+it('splits and trims a string', function () {
+    $value = 'one, two; three,;
+        four;five,,';
+
+    expect(preg_split_trim($value))
+        ->toBeArray()
+        ->toContain('three')
+        ->toHaveLength(5);
+
+})->covers('preg_split_trim');
 
 it('has pngcrush installed', function () {
     exec(' LC_ALL=C type pngcrush', $output, $result);
