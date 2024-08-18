@@ -16,16 +16,21 @@ class FailedJobs extends Command implements Isolatable, PromptsForMissingInput
     /**
      * @var string
      */
-    protected $signature = 'codebarista:failed-jobs {action : The action: retry or delete}';
+    protected $signature = 'codebarista:failed-jobs';
 
     /**
      * @var string
      */
-    protected $description = 'Retry or delete all failed jobs.';
+    protected $description = 'Retry or delete failed jobs';
 
     public function handle(RedisJobRepository $repository): int
     {
-        return match ($this->argument('action')) {
+        $action = $this->choice('What action should be taken?', [
+            'delete',
+            'retry',
+        ]);
+
+        return match ($action) {
             'delete' => $this->deleteFailedJobs($repository),
             'retry' => $this->retryFailedJobs($repository),
             default => self::INVALID,
