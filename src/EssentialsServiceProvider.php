@@ -18,10 +18,6 @@ class EssentialsServiceProvider extends ServiceProvider
         ]);
     }
 
-    public function boot(): void
-    {
-    }
-
     private function registerStringMacros(): void
     {
         $macros = [
