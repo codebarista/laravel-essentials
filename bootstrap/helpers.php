@@ -21,6 +21,13 @@ if (! function_exists('str_chop')) {
     }
 }
 
+if (! function_exists('array_fill_index_gaps')) {
+    function array_fill_index_gaps(array $array, int $count, mixed $value): array
+    {
+        return \Illuminate\Support\Arr::fill($array, $count, $value);
+    }
+}
+
 if (! function_exists('preg_split_trim')) {
     function preg_split_trim(string $value, string $pattern = '/,|;|\s+/', int $sort = -1): array
     {
