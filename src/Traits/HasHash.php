@@ -34,7 +34,7 @@ trait HasHash
         }
 
         if ($connection->table($table)->where('hash', $hash)->exists()) {
-            return self::getUniqueHash($table, $length, $iterations + 1);
+            return self::getUniqueHash($connection, $table, $length, $iterations + 1);
         }
 
         return $hash;
