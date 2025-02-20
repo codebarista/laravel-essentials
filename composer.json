@@ -22,12 +22,8 @@
         "spatie/laravel-health": "^1.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.0",
-        "orchestra/testbench": "^8.0|^9.0",
-        "pestphp/pest-plugin-laravel": "^2.0"
-    },
-    "suggest": {
-        "barryvdh/laravel-ide-helper": "Enables your IDE to provide accurate autocompletion"
+        "orchestra/testbench": "^9.0",
+        "pestphp/pest-plugin-laravel": "^3.0"
     },
     "autoload": {
         "psr-4": {
