@@ -17,7 +17,7 @@
     "require": {
         "php": "^8.3",
         "ext-redis": "*",
-        "laravel/framework": "^10.0|^11.0",
+        "laravel/framework": "^10.0|^11.0|^12.0",
         "laravel/horizon": "^5.0",
         "spatie/laravel-health": "^1.0"
     },
